@@ -1,13 +1,13 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const BASE_URL = 'http://localhost:4000/fr/products/';
+const BASE_URL = 'api/products/';
 
 class ProductsService {
   async getAll() {
     return axios({
       method: 'GET',
-      url: BASE_URL
+      url: BASE_URL + 'all'
     });
   }
 
