@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+mongoose.models = {};
 
 const userSchema = new mongoose.Schema(
   {
