@@ -16,12 +16,12 @@ export default function Nav() {
         </Link>
         <ul>
           <li>
-            <Link href="/products">
+            <Link href="/produits">
               <a>Les produits</a>
             </Link>
           </li>
           <li>
-            <Link href="/products/add">
+            <Link href="/ajout-produit">
               <a>Ajouter un produit</a>
             </Link>
           </li>
@@ -34,12 +34,12 @@ export default function Nav() {
           ) : (
             <>
               <li>
-                <Link href="/login">
+                <Link href="/connexion">
                   <a>Connexion</a>
                 </Link>
               </li>
               <li>
-                <Link href="/register">
+                <Link href="/inscription">
                   <a>Inscription</a>
                 </Link>
               </li>
