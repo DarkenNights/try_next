@@ -1,4 +1,4 @@
-import dbConnectHelper from '../../../helpers/dbConnectHelper'
+import dbConnect from '../../../utils/dbConnect'
 
 const User = require('../../../models/User')
 const bcrypt = require('bcrypt')
@@ -29,7 +29,7 @@ const register = async (req, res) => {
   })
 
   try {
-    await dbConnectHelper()
+    await dbConnect()
     const savedUser = await user.save()
     res.status(201).send(savedUser)
   } catch (err) {

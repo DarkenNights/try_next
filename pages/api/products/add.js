@@ -1,5 +1,5 @@
 import Product from '../../../models/Product'
-import dbConnectHelper from '../../../helpers/dbConnectHelper'
+import dbConnect from '../../../utils/dbConnect'
 
 const add = async (req, res) => {
   if (req.method === 'POST') {
@@ -9,7 +9,7 @@ const add = async (req, res) => {
       image: req.body.image,
     })
     try {
-      await dbConnectHelper()
+      await dbConnect()
       const savedProduct = await product.save()
       res.status(201).send(savedProduct)
     } catch (err) {

@@ -1,4 +1,4 @@
-import dbConnectHelper from '../../../helpers/dbConnectHelper'
+import dbConnect from '../../../utils/dbConnect'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 import Users from '../../../models/User'
@@ -34,7 +34,7 @@ const options = {
       async authorize(credentials) {
         // Add logic here to look up the user from the credentials supplied
         // const user = { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-        await dbConnectHelper()
+        await dbConnect()
         const user = await Users.findOne(
           { email: credentials.email },
           { password: 0 }

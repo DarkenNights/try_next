@@ -1,19 +1,19 @@
-import AWS from 'aws-sdk'
+import sdk from 'aws-sdk'
 
 const S3_BUCKET = 'pop-collection'
 const REGION = 'eu-west-3'
 
-AWS.config.update({
+sdk.config.update({
   accessKeyId: 'AKIATCTW4ER4W37S3RAV',
   secretAccessKey: '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',
 })
 
-const myBucket = new AWS.S3({
+const myBucket = new sdk.S3({
   params: { Bucket: S3_BUCKET },
   region: REGION,
 })
 
-class AwsHelper {
+class AWS {
   async uploadFile(file, folder) {
     const params = {
       ACL: 'public-read',
@@ -52,4 +52,4 @@ class AwsHelper {
   }
 }
 
-export default new AwsHelper()
+export default new AWS()

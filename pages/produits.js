@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import ProductsService from '../services/productsService'
 import ProductInfos from '../components/ProductInfos'
-import AwsHelper from '../helpers/awsHelper'
+import AwsHelper from '../utils/AWS'
 
 export default function Produits({ products }) {
   // useEffect(() => {
@@ -39,13 +39,14 @@ export default function Produits({ products }) {
   return (
     <Layout>
       <h1>Vous êtes sur la page des produits</h1>
-      {products.map((product) => (
-        <ProductInfos
-          key={product._id}
-          product={product}
-          handleRemove={handleRemove(product)}
-        />
-      ))}
+      {products &&
+        products.map((product) => (
+          <ProductInfos
+            key={product._id}
+            product={product}
+            // handleRemove={handleRemove(product)}
+          />
+        ))}
     </Layout>
   )
 }
@@ -62,7 +63,7 @@ export async function getStaticProps() {
   // will receive `posts` as a prop at build time
   return {
     props: {
-      products,
+      products: products.data,
     },
   }
 }

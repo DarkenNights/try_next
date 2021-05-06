@@ -1,24 +1,27 @@
-import mongoose from 'mongoose';
-mongoose.models = {};
+import mongoose from 'mongoose'
 
-const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: false,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
   },
-  description: {
-    type: String,
-    required: false
-  },
-  image: {
-    type: String,
-    required: true
-  }
-},
-  { timestamps: {
+  {
+    timestamps: {
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-    }
-  })
+    },
+  }
+)
 
-export default mongoose.model('Product', productSchema);
+export default mongoose.models.Product ||
+  mongoose.model('Product', productSchema)

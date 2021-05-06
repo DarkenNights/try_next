@@ -1,4 +1,4 @@
-import AwsHelper from '../helpers/awsHelper'
+import AwsHelper from '../utils/AWS'
 import ProductsService from '../services/productsService'
 import { useState } from 'react'
 import Layout from '../components/Layout'
@@ -16,15 +16,15 @@ export default function AjoutProduit() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const imageS3Url = await AwsHelper.uploadFile(image, 'images')
+      //const imageS3Url = await AwsHelper.uploadFile(image, 'images')
       const newProduct = {
         name: fields.name,
         description: fields.description,
-        image: imageS3Url,
+        image: image.name,
       }
       const response = await ProductsService.add(newProduct)
       if (response.status === 201) {
-        await router.push('/produits')
+        //await router.push('/produits')
       }
     } catch (error) {
       console.log(error)
